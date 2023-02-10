@@ -93,6 +93,10 @@ def process_reviews(reviews,hostel):
 	for x in reviews:
 		gender =x["reviewer"]["gender"]
 		nationality=(x["reviewer"]["nationality"])
+		ageGroup=(x["reviewer"]["ageGroup"])
+		rank=(x["reviewer"]["rank"])
+		fields = (x["reviewer"])
+		print(fields)
 		array=filter_words(x["notes"].split())
 
 		hostel.set_gender(gender)
