@@ -36,6 +36,7 @@ class Hostel:
 		self.female=0
 		self.array_nationality=[]
 		self.array_common=[]
+		self.array_age=[]
 	def get_id(self):
 		return self.id
 	def get_name(self):
@@ -65,22 +66,30 @@ class Hostel:
 		return self.array_nationality
 	def set_nat(self,nat):
 		self.array_nationality.append(nat)
+	def get_age(self):
+		return self.array_age
+	def set_age(self, age):
+		self.array_age.append(age)
 
 # Fills the result table
 def display(hostels):
 	results=PrettyTable()
-	results.field_names = ["Hostel name","Rating (/10)", "Number of reviews", "Distance","City", "Male","Female", "Nationality", "Common words"]
+	results.field_names = ["Hostel name","Rating (/10)", "Number of reviews", "Distance","City", "Male","Female", "Age", "Nationality", "Common words"]
 	for h in hostels:
 		frequent_nationality = Counter(h.get_nat()).most_common(4)
+		age_group = Counter(h.get_age()).most_common(4)
 		frequent_words = Counter(h.get_common_words()).most_common(common_words_listed)
 		nat=""
 		words=""
+		age=""
 		for x in frequent_nationality:
 			nat=nat + (str(x[0]) + "(" + str(x[1])+"), ")
+		for z in age_group:
+			age=age + (str(z[0]) + "(" + str(z[1])+"), ")
 		for y in frequent_words:
 			words=words+str(y[0])+", "
 
-		results.add_row([h.get_name(),h.get_rating(),h.get_review(),h.get_distance(),h.get_city(),h.get_male(),h.get_female(),nat,words])
+		results.add_row([h.get_name(),h.get_rating(),h.get_review(),h.get_distance(),h.get_city(),h.get_male(),h.get_female(),age, nat,words])
 		
 	print(results.get_string(sort_key=operator.itemgetter(3, 0), sortby="Number of reviews"))
 
@@ -96,11 +105,12 @@ def process_reviews(reviews,hostel):
 		ageGroup=(x["reviewer"]["ageGroup"])
 		rank=(x["reviewer"]["rank"])
 		fields = (x["reviewer"])
-		print(fields)
+		#print(fields)
 		array=filter_words(x["notes"].split())
 
 		hostel.set_gender(gender)
 		hostel.set_nat(nationality)
+		hostel.set_age(ageGroup)
 	
 		for words in array:
 			hostel.set_common_words(words)
