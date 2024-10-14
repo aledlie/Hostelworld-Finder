@@ -74,11 +74,11 @@ class Hostel:
 # Fills the result table
 def display(hostels):
 	results=PrettyTable()
-	results.field_names = ["Hostel name","Rating (/10)", "Number of reviews", "Distance","City", "Male","Female", "Age", "Nationality", "Common words"]
+	results.field_names = ["Hostel name","Rating", "# reviews", "Distance","City", "Male","Female", "Age", "Nationality", "Common words"]
 	for h in hostels:
-		frequent_nationality = Counter(h.get_nat()).most_common(4)
+		frequent_nationality = Counter(h.get_nat()).most_common(2)
 		age_group = Counter(h.get_age()).most_common(4)
-		frequent_words = Counter(h.get_common_words()).most_common(common_words_listed)
+		frequent_words = Counter(h.get_common_words()).most_common(4)
 		nat=""
 		words=""
 		age=""
@@ -91,7 +91,7 @@ def display(hostels):
 
 		results.add_row([h.get_name(),h.get_rating(),h.get_review(),h.get_distance(),h.get_city(),h.get_male(),h.get_female(),age, nat,words])
 		
-	print(results.get_string(sort_key=operator.itemgetter(3, 0), sortby="Number of reviews"))
+	print(results.get_string(sort_key=operator.itemgetter(3, 0), sortby="# reviews"))
 
 # Returns the comment minus any words in the stopwords list
 def filter_words(comment):
