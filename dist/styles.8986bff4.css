@@ -1,0 +1,94 @@
+CSS
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.search-button {
+  background-color: #007AFF;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.map-container {
+  width: 100%;
+  height: 500px;
+  border: 1px solid #ddd;
+  margin-bottom: 2rem;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.hostel-list {
+  width: 100%;
+  max-width: 800px;
+}
+
+#hostel-list-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hostel-list li {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.hostel-list li:last-child {
+  border-bottom: none;
+}
+
+.hostel-list h2 {
+  margin-top: 0;
+}
+
+#map-view {
+  height: 500px;
+  width: 100%;
+  border: 1px solid #ddd;
+  margin-bottom: 2rem;
+}
+
+
+/*# sourceMappingURL=/styles.8986bff4.css.map */

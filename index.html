@@ -4,10 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hostelworld Finder</title>
-  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-  <div id="root"></div>
-  <script src="index.js"></script>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#" class="logo">Hostelworld Finder</a></li>
+        <li><div id="search-bar"></div></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div id="root"></div>
+  </main>
+  <script type="module" src="index.js"></script>
 </body>
 </html>
